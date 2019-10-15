@@ -2,7 +2,7 @@
 SprintBot is a Discord bot for managing word sprints for NaNoWriMo communities. If you're not familiar with NaNoWriMo (National Novel Writing Month), check out http://www.nanowrimo.org.
 
 ## Usage
-To add SprintBot to your Discord server, [click here](https://discordapp.com/channels/632747287067754497/632747287067754501/632930249696477187). Note that you will need to give SprintBot permission to read and write messages in your server.
+To add SprintBot to your Discord server, [click here](https://discordapp.com/api/oauth2/authorize?client_id=632592411838775318&permissions=3072&scope=bot). Note that you will need to give SprintBot permission to read and write messages in your server.
 
 You can use SprintBot commands by starting your message with "sb!" (without quotes) or by tagging @SprintBot#8987 in your message. You can also DM SprintBot directly to use these commands by yourself.
 
