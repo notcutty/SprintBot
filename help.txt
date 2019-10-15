@@ -1,0 +1,22 @@
+Welcome to SprintBot! You can use SprintBot commands by starting your message with "sb!" (without quotes) or by tagging @SprintBot#8987 in your message. You can also DM SprintBot directly to use these commands by yourself.
+
+The following commands are available:
+
+* sprint X :MM
+Schedules a sprint that will last for X minutes and starts when the clock reaches the :MM minute.
+
+* sprint :MM X
+Works the same as above, with the input order swapped.
+
+* sprint X
+Schedules a sprint of the specified length that will start when the clock reaches a minute divisible by 5 (:00, :05, :10, etc.)
+
+* sprint :MM
+Schedules a 15-minute sprint when the clock next reaches the :MM minute.
+
+* cancel sprint
+Cancels a sprint that has been scheduled, but hasn't started yet. Note that sprints that have already started can't be canceled, and that only the user who scheduled a sprint or a moderator of a channel can cancel sprints.
+
+For additional information, help, or to contribute to SprintBot, check out:
+GitHub repository: (insert link here)
+Official SprintBot development Discord: https://discord.gg/HJeG5u7
