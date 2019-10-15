@@ -23,6 +23,17 @@ Schedules a 15-minute sprint when the clock next reaches the :MM minute.
 ### cancel sprint
 Cancels a sprint that has been scheduled, but hasn't started yet. Note that sprints that have already started can't be canceled, and that only the user who scheduled a sprint or a moderator of a channel can cancel sprints.
 
+# Running Your Own Instance
+
+You can run your own instance of SprintBot. A minimum of Python 3.6, SQLAlchemy 1.3, and the latest version of discord.py are required. You can install prerequisites with pip:
+pip install sqlalchemy
+pip install discord.py
+
+After that, you will need to establish a SprintBot on the Discord Developer Portal and save the client token in a file called sprintbot_client_token.py.
+client_token = '(your client token here)'
+
+For security purposes, it is advised that you do not share your client token publicly.
+
 # Contributions
 
 Pull requests are alweays welcome. Feel free to add issues on the issue tracker as well. If you're not a programmer, you can still contribute by joining the official SprintBot development Discord server to make suggestions or report bugs in the #development channel.
