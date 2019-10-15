@@ -1,4 +1,4 @@
-# SprintBot
+# SprintBot (Beta version 2019.10.15)
 SprintBot is a Discord bot for managing word sprints for NaNoWriMo communities. If you're not familiar with NaNoWriMo (National Novel Writing Month), check out http://www.nanowrimo.org.
 
 ## Usage
