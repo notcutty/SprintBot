@@ -28,3 +28,5 @@ Cancels a sprint that has been scheduled, but hasn't started yet. Note that spri
 Pull requests are alweays welcome. Feel free to add issues on the issue tracker as well. If you're not a programmer, you can still contribute by joining the official SprintBot development Discord server to make suggestions or report bugs in the #development channel.
 
 Official SprintBot development Discord: https://discord.gg/HJeG5u7
+
+If you're financially stable, consider contributing to SprintBot's server costs: https://www.buymeacoffee.com/VR41jDulG
