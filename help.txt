@@ -18,5 +18,5 @@ Schedules a 15-minute sprint when the clock next reaches the :MM minute.
 Cancels a sprint that has been scheduled, but hasn't started yet. Note that sprints that have already started can't be canceled, and that only the user who scheduled a sprint or a moderator of a channel can cancel sprints.
 
 For additional information, help, or to contribute to SprintBot, check out:
-GitHub repository: (insert link here)
+GitHub repository: https://github.com/notcutty/SprintBot
 Official SprintBot development Discord: https://discord.gg/HJeG5u7
