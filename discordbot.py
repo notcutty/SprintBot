@@ -4,7 +4,7 @@ import asyncio
 import discord
 import random
 import re
-import secrets
+import sprintbot_client_token
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine, literal
 from sqlalchemy.orm import sessionmaker
@@ -387,4 +387,4 @@ async def on_message(message):
 
 
 client.loop.create_task(stopwatch())
-client.run(secrets.client_token)
+client.run(sprintbot_client_token.client_token)
