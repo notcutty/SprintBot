@@ -5,10 +5,14 @@ import discord
 import random
 import re
 import sprintbot_client_token
+import bot_info
 from datetime import datetime, timedelta
 from sqlalchemy import create_engine, literal
 from sqlalchemy.orm import sessionmaker
 from declare_tables import Base, Sprint, SprintChannel, SprintServer
+
+# Specific variables for running your own instance. Set according to the
+# instructions in the readme.
 
 # Command regex
 sprint_one_arg = r'sprint\s+(.{1,3})'
@@ -164,15 +168,18 @@ async def stopwatch():
         if time_now.minute % 15 == 0 and time_now.second == 0:
             # Change the avatar every 15 minutes
             last_avatar = await cycle_avatar(last_avatar)
-        if (time_now.hour == 0 and time_now.minute == 0 and
-                time_now.second == 0):
-            # Submit usage statistics to the SprintBot development server
-            usage_channel = client.get_channel(633451370103701535)
-            servers = len(client.guilds)
-            sprints = session.query(Sprint).count()
-            await usage_channel.send(f"SprintBot is on {servers} servers " +
-                                     f"and has helped with {sprints} word " +
-                                     "sprints!")
+        if bot_info.bot_id and bot_info.bot_usage_statistics_channel:
+            if ((time_now.hour == 0 and time_now.minute == 0 and
+                    time_now.second == 0) and
+                    client.user.id == bot_info.bot_id):
+                # Submit usage statistics to the SprintBot development server
+                usage_channel = client.get_channel(
+                    bot_info.bot_usage_statistics_channel)
+                servers = len(client.guilds)
+                sprints = session.query(Sprint).count()
+                await usage_channel.send(f"SprintBot is on {servers} " +
+                                         "servers and has helped with " +
+                                         f"{sprints} word sprints!")
         for sprint in query:
             if (time_now >= sprint.start_time and sprint.is_active and not
                     sprint.is_started):
@@ -386,5 +393,9 @@ async def on_message(message):
         await message.author.send(help_text)
 
 
-client.loop.create_task(stopwatch())
-client.run(sprintbot_client_token.client_token)
+if sprintbot_client_token.client_token:
+    client.loop.create_task(stopwatch())
+    client.run(sprintbot_client_token.client_token)
+else:
+    print("You must set your bot's client token in " +
+          "sprintbot_client_token.py.")

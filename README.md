@@ -26,13 +26,21 @@ Cancels a sprint that has been scheduled, but hasn't started yet. Note that spri
 # Running Your Own Instance
 
 You can run your own instance of SprintBot. A minimum of Python 3.6, SQLAlchemy 1.3, and the latest version of discord.py are required. You can install prerequisites with pip:
+
+```
 pip install sqlalchemy
 pip install discord.py
+```
 
-After that, you will need to establish a SprintBot on the Discord Developer Portal and save the client token in a file called sprintbot_client_token.py.
+After that, you will need to establish a SprintBot on the Discord Developer Portal and save the client token in sprintbot_client_token.py.
+
+```
 client_token = '(your client token here)'
+```
 
 For security purposes, it is advised that you do not share your client token publicly.
+
+If you want your SprintBot to report usage information to a specific channel on a server that it's on, you will need to edit bot_info.py with the integer values of your bot's user ID and the channel it should report to. Note that this is not required for SprintBot to run.
 
 # Contributions
 
