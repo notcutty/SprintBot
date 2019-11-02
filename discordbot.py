@@ -137,9 +137,14 @@ async def create_new_sprint(start_time, length, channel, message):
         length_word = 'minutes'
     else:
         length_word = 'minute'
-    await message.channel.send("Scheduled a new sprint! It will start " +
-                               f"in {remaining} {start_word} and last for " +
-                               f"{length} {length_word}.")
+    if remaining != 1440 and remaining != 0:
+        await message.channel.send("Scheduled a new sprint! It will start " +
+                                   f"in {remaining} {start_word} and last " +
+                                   f"for {length} {length_word}.")
+    else:
+        await message.channel.send("Scheduled a new sprint! It will start " +
+                                   "immediately and last for " +
+                                   f"{length} {length_word}.")
 
 
 async def cycle_avatar(last_avatar):
@@ -204,7 +209,7 @@ async def stopwatch():
                     remainder = "One minute"
                 else:
                     if minutes == int(minutes):
-                        remainder = f"{minutes} minutes"
+                        remainder = f"{int(minutes)} minutes"
                     else:
                         if int(minutes) > 0:
                             remainder = (f"{int(minutes)} minutes and 30 " +
