@@ -197,8 +197,9 @@ async def stopwatch():
                 channel = client.get_channel(
                     int(session.query(SprintChannel).get(
                         sprint.sprintchannel_id).channel_id))
-                await channel.send("The sprint has begun! It will last for " +
-                                   f"{int(minutes)} {minute_text}.")
+                if channel:
+                    await channel.send("The sprint has begun! It will last for " +
+                                       f"{int(minutes)} {minute_text}.")
                 sprint.is_started = True
                 session.commit()
             elif sprint.is_started and at_halfway_point(
