@@ -150,7 +150,7 @@ async def create_new_sprint(start_time, length, channel, message):
 async def cycle_avatar(last_avatar):
     """
     A silly little function that cycles SprintBot avatar between various
-    running emojis. Changes once every 15 minutes.
+    running emojis. Changes once every 60 minutes.
     """
     # Select a random avatar from the avatars folder
     selected_avatar = last_avatar
@@ -170,8 +170,8 @@ async def stopwatch():
         time_now = datetime.utcnow()
         query = session.query(Sprint).filter(
             Sprint.is_active == literal(True)).all()
-        if time_now.minute % 15 == 0 and time_now.second == 0:
-            # Change the avatar every 15 minutes
+        if time_now.minute == 0 and time_now.second == 0:
+            # Change the avatar every 60 minutes, at the start of the hour
             last_avatar = await cycle_avatar(last_avatar)
         if bot_info.bot_id and bot_info.bot_usage_statistics_channel:
             if ((time_now.hour == 0 and time_now.minute == 0 and
@@ -336,6 +336,8 @@ async def on_message(message):
                 return
             length = 15
         else:
+            if not capture.isnumeric():
+                return
             length = int(capture)
             if length < 1:
                 return
