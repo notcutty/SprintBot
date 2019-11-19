@@ -227,10 +227,12 @@ async def stopwatch():
                 channel = client.get_channel(
                     int(session.query(SprintChannel).get(
                         sprint.sprintchannel_id).channel_id))
-                await channel.send("The sprint is complete! Let everyone " +
-                                   "know how you did!")
                 sprint.is_active = False
                 session.commit()
+                if channel:
+                    await channel.send("The sprint is complete! Let everyone " +
+                                       "know how you did!")
+                
         await asyncio.sleep(1)
 
 
