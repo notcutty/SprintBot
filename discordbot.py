@@ -270,6 +270,9 @@ async def on_message(message):
     or if @-mentioned on a group or server channel. It also reacts if the
     message string starts with 'sb!'.
     """
+    if len(message.content) <= 1:
+        return
+    
     if message.author.bot:
         # Bots should not react to each other's messages, or itself
         return
