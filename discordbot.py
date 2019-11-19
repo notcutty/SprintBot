@@ -311,9 +311,17 @@ async def on_message(message):
                 if len(capture) > 3:
                     # Needs to be in the format :MM
                     return
-                start_time = int(capture[1:])
+                start_time = capture[1:]
+                # If the start time is somehow not a number (e.g. typing an emoji by accident), abort
+                if not start_time.isnumeric():
+                    return
+                start_time = int(start_time)
             else:
-                length = int(capture.split(" ")[0])
+                length = capture.split(" ")[0]     
+                # If the length is somehow not a number (e.g. typing an emoji by accident), abort
+                if not length.isnumeric():
+                    return
+                length = int(length)
         # Add the sprint channel if it doesn't already exist
         channel = get_sprint_channel(message)
 
